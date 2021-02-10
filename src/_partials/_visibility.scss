@@ -1,0 +1,25 @@
+@import './variables';
+
+// Display show
+@each $prop, $value in $breakpoints {
+  @include mediaMinmaxWidth(null, $value) {
+    @if ($prop) {
+      $prop: '#{$prop}\\:';
+      .#{$prop}visible {
+        display: none !important;
+      }
+    }
+  }
+}
+
+// Display hide
+@each $prop, $value in $breakpoints {
+  @include mediaMinmaxWidth($value, null) {
+    @if ($prop) {
+      $prop: '#{$prop}\\:';
+    }
+    .#{$prop}hidden {
+      display: none !important;
+    }
+  }
+}
