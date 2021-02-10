@@ -1,0 +1,86 @@
+$space: (
+  'auto',
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  10,
+  15,
+  20,
+  25,
+  30,
+  35,
+  40,
+  45,
+  50,
+  55,
+  60,
+  65,
+  70,
+  75,
+  80,
+  85,
+  90,
+  95,
+  100
+);
+
+$type: (
+  'p': 'padding',
+  'm': 'margin',
+);
+
+@each $value in $space {
+  $propValue: 0;
+
+  @each $class, $prop in $type {
+    // Check if value is string or numeric
+    @if ($value == 0 or type-of($value) == 'string') {
+      $propValue: #{$value};
+    } @else {
+      $propValue: #{$value}px;
+    }
+
+    // Skip padding: auto
+    @if ($class!= 'p' or $value!= 'auto') {
+      // Around
+      .#{$class}-#{$value} {
+        #{$prop}: #{$propValue};
+      }
+
+      // Vertical (y)
+      .#{$class}y-#{$value} {
+        #{$prop}-top: #{$propValue};
+        #{$prop}-bottom: #{$propValue};
+      }
+
+      // Horizontal (x)
+      .#{$class}x-#{$value} {
+        #{$prop}-left: #{$propValue};
+        #{$prop}-right: #{$propValue};
+      }
+
+      // Top
+      .#{$class}t-#{$value} {
+        #{$prop}-top: #{$propValue};
+      }
+
+      // Right
+      .#{$class}r-#{$value} {
+        #{$prop}-right: #{$propValue};
+      }
+
+      // Bottom
+      .#{$class}b-#{$value} {
+        #{$prop}-bottom: #{$propValue};
+      }
+
+      // Left
+      .#{$class}l-#{$value} {
+        #{$prop}-left: #{$propValue};
+      }
+    }
+  }
+}
