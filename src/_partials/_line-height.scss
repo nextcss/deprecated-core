@@ -1,0 +1,16 @@
+// Line height
+@for $i from 0 through 20 {
+  $class: 0;
+
+  @if ($i % 10 == 0) {
+    $class: $i / 10;
+  } @else if ($i < 10) {
+    $class: '0' + $i;
+  } @else {
+    $class: $i;
+  }
+
+  .lh-#{$class} {
+    line-height: ($i/ 10);
+  }
+}
