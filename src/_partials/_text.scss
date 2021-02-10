@@ -1,0 +1,42 @@
+// Text align
+$align: ('left', 'center', 'right', 'justify');
+
+@each $value in $align {
+  .text-#{$value} {
+    text-align: #{$value};
+  }
+}
+
+// Text transform
+$trasform: ('uppercase', 'lowercase', 'capitalize');
+
+@each $value in $trasform {
+  .#{$value} {
+    text-transform: #{$value};
+  }
+}
+
+.no-transform {
+  text-transform: none;
+}
+
+// Text decoration
+$decoration: ('underline', 'line-through');
+
+@each $value in $decoration {
+  .#{$value} {
+    text-decoration: #{$value};
+  }
+}
+
+.no-decoration {
+  text-decoration: none;
+}
+
+// Text trim
+.text-trim {
+  max-width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
