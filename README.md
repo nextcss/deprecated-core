@@ -1,3 +1,3 @@
-# Next.css reset module
+# Next.css core module
 
-This module contains Reset CSS rules.
+This module contains Core CSS rules.
