@@ -1,0 +1,17 @@
+$sizes: (
+  'xs': 480,
+  'sm': 640,
+  'md': 768,
+  'lg': 1024,
+  'xl': 1280,
+);
+
+@each $selector, $property in $sizes {
+  .container-#{$selector} {
+    width: 100%;
+    max-width: #{$property}px;
+    margin: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
