@@ -1,0 +1,30 @@
+// Position
+$position: ('static', 'relative', 'absolute', 'fixed', 'sticky');
+
+@each $prop in $position {
+  .#{$prop} {
+    position: #{$prop};
+
+    @if $prop == 'sticky' or $prop == 'absolute' {
+      top: 0;
+    }
+  }
+}
+
+// Top, right, bottom, left
+$styles: ('top', 'right', 'bottom', 'left');
+$sizes: (0);
+
+@each $style in $styles {
+  @each $size in $sizes {
+    $value: 0;
+
+    @if ($value != 0) {
+      $value: #{$size}px;
+    }
+
+    .#{$style}-#{$size} {
+      #{$style}: #{$value};
+    }
+  }
+}
