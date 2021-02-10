@@ -1,0 +1,53 @@
+// Flex wrap
+$wrap: ('wrap', 'wrap-reverse', 'nowrap');
+
+@each $prop in $wrap {
+  .flex-#{$prop} {
+    flex-wrap: #{$prop};
+  }
+}
+
+// Flex Direction
+$direction: ('row', 'row-reverse', 'column', 'column-reverse');
+
+@each $prop in $direction {
+  .flex-#{$prop} {
+    flex-direction: #{$prop};
+  }
+}
+
+// Flex align
+$align: (
+  'start': 'flex-start',
+  'end': 'flex-end',
+  'center': 'center',
+  'space': 'space-between',
+);
+
+@each $query, $prop in $align {
+  .justify-#{$query} {
+    justify-content: #{$prop};
+    @if $query != 'space' {
+      justify-items: #{$prop};
+    }
+  }
+  .align-#{$query} {
+    @if $query != 'center' {
+      align-content: #{$prop};
+    }
+    @if $query != 'space' {
+      align-items: #{$prop};
+    }
+  }
+}
+
+// Flex resize 0
+.flex-0 {
+  flex: 0 0 auto;
+}
+
+// Flex resize 1
+.flex-1 {
+  flex: 1 1 auto;
+  min-width: 0;
+}
