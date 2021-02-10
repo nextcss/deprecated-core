@@ -1,0 +1,10 @@
+$selectors: ('inline', 'block', 'inline-block', 'flex', 'inline-flex');
+
+@each $selector in $selectors {
+  .#{$selector} {
+    display: #{$selector};
+    @if $selector == 'flex' {
+      flex-wrap: wrap;
+    }
+  }
+}
