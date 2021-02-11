@@ -1,5 +1,5 @@
 // Position
-$position: ('static', 'relative', 'absolute', 'fixed', 'sticky');
+$position: 'static', 'relative', 'absolute', 'fixed', 'sticky';
 
 @each $prop in $position {
   .#{$prop} {
@@ -13,13 +13,15 @@ $position: ('static', 'relative', 'absolute', 'fixed', 'sticky');
 
 // Top, right, bottom, left
 $styles: ('top', 'right', 'bottom', 'left');
-$sizes: (0);
+$sizesBasis: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10;
+$sizesExtend: 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100;
+$sizes: join($sizesBasis, $sizesExtend);
 
 @each $style in $styles {
   @each $size in $sizes {
     $value: 0;
 
-    @if ($value != 0) {
+    @if ($size != 0) {
       $value: #{$size}px;
     }
 
