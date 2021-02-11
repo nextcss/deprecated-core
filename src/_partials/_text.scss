@@ -1,5 +1,5 @@
 // Text align
-$align: ('left', 'center', 'right', 'justify');
+$align: 'left', 'center', 'right', 'justify';
 
 @each $value in $align {
   .text-#{$value} {
@@ -8,7 +8,7 @@ $align: ('left', 'center', 'right', 'justify');
 }
 
 // Text transform
-$trasform: ('uppercase', 'lowercase', 'capitalize');
+$trasform: 'uppercase', 'lowercase', 'capitalize';
 
 @each $value in $trasform {
   .#{$value} {
@@ -21,7 +21,7 @@ $trasform: ('uppercase', 'lowercase', 'capitalize');
 }
 
 // Text decoration
-$decoration: ('underline', 'line-through');
+$decoration: 'underline', 'line-through';
 
 @each $value in $decoration {
   .#{$value} {
