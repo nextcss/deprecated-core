@@ -1,5 +1,5 @@
 // Line height
-@for $i from 0 through 20 {
+@for $i from 0 through 40 {
   $class: 0;
 
   @if ($i % 10 == 0) {
