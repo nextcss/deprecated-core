@@ -1,133 +1,73 @@
 @import 'variables';
 
-// 12 columns with
-@for $i from 1 through 12 {
-  .w-12\/#{$i} {
-    width: (100% / (12 / $i));
-  }
-}
+@each $prop, $breakpoint in $breakpoints {
+  $prop: addPrefixBreakpoint($prop);
 
-// Percentage width
-@for $i from 1 through 20 {
-  .w-100\/#{$i*5} {
-    width: $i * 5%;
-  }
-}
+  @include mediaMinmaxWidth($breakpoint, null) {
+    // 12 columns with
+    @for $i from 1 through 12 {
+      .#{$prop}w-12\/#{$i} {
+        width: (100% / (12 / $i));
+      }
+    }
 
-// Viewport width
-@for $i from 1 through 20 {
-  .w-#{$i*5}v {
-    width: $i * 5vw;
-  }
-}
+    // Percentage width
+    @for $i from 1 through 20 {
+      .#{$prop}w-100\/#{$i*5} {
+        width: $i * 5%;
+      }
+    }
 
-// Viewport height
-@for $i from 1 through 20 {
-  .h-#{$i*5}v {
-    height: $i * 5vh;
-  }
-}
+    // Viewport width
+    @for $i from 1 through 20 {
+      .#{$prop}w-#{$i*5}v {
+        width: $i * 5vw;
+      }
+    }
 
-// 12 columns with - Screen small
-@media screen and (min-width: map-get($breakpoints,'sm') + 'px') {
-  // 12 columns with
-  @for $i from 1 through 12 {
-    .sm\:w-12\/#{$i} {
-      width: (100% / (12 / $i));
+    // Viewport height
+    @for $i from 1 through 20 {
+      .#{$prop}h-#{$i*5}v {
+        height: $i * 5vh;
+      }
+    }
+
+    // Width auto
+    .w-auto {
+      width: auto;
+    }
+
+    // Height auto
+    .h-auto {
+      height: auto;
+    }
+
+    // Fit with and height
+    .#{$prop}fit {
+      width: 100%;
+      height: 100%;
+    }
+
+    // Fit with
+    .#{$prop}fit-w {
+      width: 100%;
+    }
+
+    // Fit height
+    .#{$prop}fit-h {
+      height: 100%;
     }
   }
-
-  // Percentage width
-  @for $i from 1 through 20 {
-    .sm\:w-100\/#{$i*5} {
-      width: $i * 5%;
-    }
-  }
-}
-
-// 12 columns with - Screen medium
-@media screen and (min-width: map-get($breakpoints,'md') + 'px') {
-  // 12 columns with
-  @for $i from 1 through 12 {
-    .md\:w-12\/#{$i} {
-      width: (100% / (12 / $i));
-    }
-  }
-
-  // Percentage width
-  @for $i from 1 through 20 {
-    .md\:w-100\/#{$i*5} {
-      width: $i * 5%;
-    }
-  }
-}
-
-// 12 columns with - Screen large
-@media screen and (min-width: map-get($breakpoints,'lg') + 'px') {
-  // 12 columns with
-  @for $i from 1 through 12 {
-    .lg\:w-12\/#{$i} {
-      width: (100% / (12 / $i));
-    }
-  }
-
-  // Percentage width
-  @for $i from 1 through 20 {
-    .lg\:w-100\/#{$i * 5} {
-      width: $i * 5%;
-    }
-  }
-}
-
-// Fit with and height
-.fit {
-  width: 100%;
-  height: 100%;
-}
-
-// Fit with
-.fit-w {
-  width: 100%;
-}
-
-// Fit height
-.fit-h {
-  height: 100%;
 }
 
 // Fixed with and height
-$sizes: (
-  1,
-  2,
-  3,
-  4,
-  5,
-  6,
-  7,
-  8,
-  9,
-  10,
-  11,
-  12,
-  14,
-  16,
-  18,
-  20,
-  24,
-  28,
-  32,
-  36,
-  40,
-  44,
-  48,
-  52,
-  56,
-  60,
-  64,
-  72,
-  80,
-  96
-);
+$sizes: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10;
+$sizesExtend: 11, 12, 14, 16, 18, 20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 72, 80, 96;
+$sizes: join($sizes, $sizesExtend);
+
+@for $i from 10 through 50 {
+  $sizes: join($sizes, $i * 10);
+}
 
 @each $size in $sizes {
   // Width
@@ -139,12 +79,4 @@ $sizes: (
   .h-#{$size} {
     height: #{$size}px;
   }
-}
-
-.w-auto {
-  width: auto;
-}
-
-.h-auto {
-  height: auto;
 }
