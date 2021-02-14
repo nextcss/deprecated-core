@@ -1,32 +1,51 @@
 // Position
 $position: 'static', 'relative', 'absolute', 'fixed', 'sticky';
 
-@each $prop in $position {
-  .#{$prop} {
-    position: #{$prop};
+@each $prop, $breakpoint in $breakpoints {
+  $prop: addPrefixBreakpoint($prop);
 
-    @if $prop == 'sticky' or $prop == 'absolute' {
-      top: 0;
+  @include mediaMinmaxWidth($breakpoint, null) {
+    @each $pos in $position {
+      .#{$prop}#{$pos} {
+        position: #{$pos};
+
+        @if $pos == 'sticky' or $pos == 'absolute' {
+          top: 0;
+        }
+      }
     }
   }
 }
 
 // Top, right, bottom, left
-$styles: ('top', 'right', 'bottom', 'left');
-$sizesBasis: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10;
-$sizesExtend: 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100;
-$sizes: join($sizesBasis, $sizesExtend);
+$styles: 'top', 'right', 'bottom', 'left';
 
-@each $style in $styles {
-  @each $size in $sizes {
-    $value: 0;
+$space: ();
 
-    @if ($size != 0) {
-      $value: #{$size}px;
-    }
+@for $i from 0 through 10 {
+  $space: join($space, $i);
+}
 
-    .#{$style}-#{$size} {
-      #{$style}: #{$value};
+@for $i from 3 through 100 {
+  $space: join($space, $i * 5);
+}
+
+@each $prop, $breakpoint in $breakpoints {
+  $prop: addPrefixBreakpoint($prop);
+
+  @include mediaMinmaxWidth($breakpoint, null) {
+    @each $style in $styles {
+      @each $size in $space {
+        $value: 0;
+
+        @if ($size != 0) {
+          $value: #{$size}px;
+        }
+
+        .#{$prop}#{$style}-#{$size} {
+          #{$style}: $value;
+        }
+      }
     }
   }
 }
