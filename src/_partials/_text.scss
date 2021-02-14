@@ -1,9 +1,15 @@
 // Text align
 $align: 'left', 'center', 'right', 'justify';
 
-@each $value in $align {
-  .text-#{$value} {
-    text-align: #{$value};
+@each $prop, $breakpoint in $breakpoints {
+  $prop: addPrefixBreakpoint($prop);
+
+  @include mediaMinmaxWidth($breakpoint, null) {
+    @each $value in $align {
+      .#{$prop}text-#{$value} {
+        text-align: #{$value};
+      }
+    }
   }
 }
 
