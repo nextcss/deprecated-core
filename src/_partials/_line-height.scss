@@ -1,16 +1,11 @@
+@import './variables';
+
 // Line height
-@for $i from 0 through 40 {
-  $class: 0;
+@for $i from 0 through 50 {
+  $value: $i/10;
+  $prop: str-replace(#{$value}, '.', '\\.');
 
-  @if ($i % 10 == 0) {
-    $class: $i / 10;
-  } @else if ($i < 10) {
-    $class: '0' + $i;
-  } @else {
-    $class: $i;
-  }
-
-  .lh-#{$class} {
-    line-height: ($i/ 10);
+  .lh-#{$prop} {
+    line-height: $value;
   }
 }
