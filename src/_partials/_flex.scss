@@ -1,18 +1,30 @@
 // Flex wrap
 $wrap: ('wrap', 'wrap-reverse', 'nowrap');
 
-@each $prop in $wrap {
-  .flex-#{$prop} {
-    flex-wrap: #{$prop};
+@each $prop, $breakpoint in $breakpoints {
+  $prop: addPrefixBreakpoint($prop);
+
+  @include mediaMinmaxWidth($breakpoint, null) {
+    @each $value in $wrap {
+      .#{$prop}flex-#{$value} {
+        flex-wrap: #{$value};
+      }
+    }
   }
 }
 
 // Flex Direction
 $direction: ('row', 'row-reverse', 'column', 'column-reverse');
 
-@each $prop in $direction {
-  .flex-#{$prop} {
-    flex-direction: #{$prop};
+@each $prop, $breakpoint in $breakpoints {
+  $prop: addPrefixBreakpoint($prop);
+
+  @include mediaMinmaxWidth($breakpoint, null) {
+    @each $value in $direction {
+      .#{$prop}flex-#{$value} {
+        flex-direction: #{$value};
+      }
+    }
   }
 }
 
@@ -24,30 +36,56 @@ $align: (
   'space': 'space-between',
 );
 
-@each $query, $prop in $align {
-  .justify-#{$query} {
-    justify-content: #{$prop};
-    @if $query != 'space' {
-      justify-items: #{$prop};
-    }
-  }
-  .align-#{$query} {
-    @if $query != 'center' {
-      align-content: #{$prop};
-    }
-    @if $query != 'space' {
-      align-items: #{$prop};
+@each $prop, $breakpoint in $breakpoints {
+  $prop: addPrefixBreakpoint($prop);
+
+  @include mediaMinmaxWidth($breakpoint, null) {
+    @each $query, $value in $align {
+      .#{$prop}justify-#{$query} {
+        justify-content: #{$value};
+      }
+      @if $query != 'space' {
+        .#{$prop}align-#{$query} {
+          align-items: #{$value};
+        }
+      }
     }
   }
 }
 
-// Flex resize 0
-.flex-0 {
-  flex: 0 0 auto;
-}
+@each $prop, $breakpoint in $breakpoints {
+  $prop: addPrefixBreakpoint($prop);
 
-// Flex resize 1
-.flex-1 {
-  flex: 1 1 auto;
-  min-width: 0;
+  @include mediaMinmaxWidth($breakpoint, null) {
+    // Flex resize 0
+    .#{$prop}flex-0 {
+      flex: 0 0 auto;
+    }
+
+    // Flex resize 1
+    .#{$prop}flex-1 {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    // Flex grow 0
+    .#{$prop}flex-grow-0 {
+      flex-grow: 0;
+    }
+
+    // Flex grow 0
+    .#{$prop}flex-grow-1 {
+      flex-grow: 1;
+    }
+
+    // Flex shrink 0
+    .#{$prop}flex-shrink-0 {
+      flex-shrink: 0;
+    }
+
+    // Flex shrink 1
+    .#{$prop}flex-shrink-1 {
+      flex-shrink: 1;
+    }
+  }
 }
