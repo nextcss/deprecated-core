@@ -1,10 +1,11 @@
 @import './variables';
 
-// Display show
-@each $prop, $value in $breakpoints {
-  @include mediaMinmaxWidth(null, $value) {
+// Display visible
+@each $prop, $breakpoint in $breakpoints {
+  $prop: addPrefixBreakpoint($prop);
+
+  @include mediaMinmaxWidth(null, $breakpoint) {
     @if ($prop) {
-      $prop: '#{$prop}\\:';
       .#{$prop}visible {
         display: none !important;
       }
@@ -12,12 +13,11 @@
   }
 }
 
-// Display hide
-@each $prop, $value in $breakpoints {
-  @include mediaMinmaxWidth($value, null) {
-    @if ($prop) {
-      $prop: '#{$prop}\\:';
-    }
+// Display hidden
+@each $prop, $breakpoint in $breakpoints {
+  $prop: addPrefixBreakpoint($prop);
+
+  @include mediaMinmaxWidth($breakpoint, null) {
     .#{$prop}hidden {
       display: none !important;
     }
