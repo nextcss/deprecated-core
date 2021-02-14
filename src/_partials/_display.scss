@@ -1,4 +1,4 @@
-$selectors: ('inline', 'block', 'inline-block', 'flex', 'inline-flex');
+$selectors: 'inline', 'block', 'inline-block', 'flex', 'inline-flex';
 
 @each $selector in $selectors {
   .#{$selector} {
