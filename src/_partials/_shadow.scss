@@ -1,5 +1,5 @@
 // Box shadow
-$shadow: (1, 2, 3, 4, 6, 8, 9, 12, 16, 24);
+$shadow: 1, 2, 3, 4, 6, 8, 9, 12, 16, 24;
 
 @for $i from 1 through length($shadow) {
   $value: nth($shadow, $i);
