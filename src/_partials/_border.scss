@@ -1,51 +1,79 @@
 // Border with
-$borderBasis: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10;
-$borderExtend: 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100;
-$border: join($borderBasis, $borderExtend);
+$border: ();
 
-@each $value in $border {
-  .b-#{$value} {
-    border: #{$value}px solid;
+@for $i from 0 through 10 {
+  $border: join($border, $i);
+}
+
+@for $i from 3 through 20 {
+  $border: join($border, $i * 5);
+}
+
+@each $prop in $border {
+  $value: 0 solid;
+
+  @if ($prop != 0) {
+    $value: #{$prop}px solid;
   }
 
-  .by-#{$value} {
-    border-top: #{$value}px solid;
-    border-bottom: #{$value}px solid;
+  .b-#{$prop} {
+    border: $value;
   }
 
-  .bx-#{$value} {
-    border-left: #{$value}px solid;
-    border-right: #{$value}px solid;
+  .by-#{$prop} {
+    border-top: $value;
+    border-bottom: $value;
   }
 
-  .bt-#{$value} {
-    border-top: #{$value}px solid;
+  .bx-#{$prop} {
+    border-left: $value;
+    border-right: $value;
   }
 
-  .br-#{$value} {
-    border-right: #{$value}px solid;
+  .bt-#{$prop} {
+    border-top: $value;
   }
 
-  .bb-#{$value} {
-    border-bottom: #{$value}px solid;
+  .br-#{$prop} {
+    border-right: $value;
   }
 
-  .bl-#{$value} {
-    border-left: #{$value}px solid;
+  .bb-#{$prop} {
+    border-bottom: $value;
+  }
+
+  .bl-#{$prop} {
+    border-left: $value;
   }
 }
 
 // Border radius
-$radius: (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 1000, 10000);
+$radius: ();
 
-@each $value in $radius {
-  .radius-#{$value} {
-    border-radius: #{$value}px;
+@for $i from 0 through 10 {
+  $radius: join($radius, $i);
+}
+
+@for $i from 2 through 20 {
+  $radius: join($radius, $i * 5);
+}
+
+$radius: join($radius, (1000, 10000));
+
+@each $prop in $radius {
+  $value: 0;
+
+  @if ($prop != 0) {
+    $value: #{$prop}px;
+  }
+
+  .radius-#{$prop} {
+    border-radius: $value;
   }
 }
 
 // Border style
-$style: ('solid', 'dashed', 'dotted', 'double', 'groove', 'inset', 'none', 'outset', 'ridge');
+$style: 'solid', 'dashed', 'dotted', 'double', 'groove', 'inset', 'none', 'outset', 'ridge';
 
 @each $value in $style {
   .b-#{$value} {
@@ -54,7 +82,7 @@ $style: ('solid', 'dashed', 'dotted', 'double', 'groove', 'inset', 'none', 'outs
 }
 
 // Border collapse
-$collapse: ('collapse', 'separate');
+$collapse: 'collapse', 'separate';
 
 @each $value in $collapse {
   .b-#{$value} {
