@@ -1,0 +1,13 @@
+$float: 'left', 'right', 'none';
+
+@each $query, $breakpoint in $breakpoints {
+  $query: addColonAfter($query);
+
+  @include wrapperMediaWidth($breakpoint, null) {
+    @each $prop in $float {
+      .#{$query}float-#{$prop} {
+        float: #{$prop};
+      }
+    }
+  }
+}
