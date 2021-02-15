@@ -1,0 +1,19 @@
+$overscroll: 'auto', 'contain', 'none';
+$coordinate: null, 'x', 'y';
+
+@each $query, $breakpoint in $breakpoints {
+  $query: addColonAfter($query);
+
+  @include wrapperMediaWidth($breakpoint, null) {
+    @each $prop in $coordinate {
+      @if ($prop) {
+        $prop: -#{$prop};
+      }
+      @each $value in $overscroll {
+        .#{$query}overscroll#{$prop}-#{$value} {
+          overscroll-behavior#{$prop}: #{$value};
+        }
+      }
+    }
+  }
+}
