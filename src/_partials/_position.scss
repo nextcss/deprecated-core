@@ -1,12 +1,12 @@
 // Position
 $position: 'static', 'relative', 'absolute', 'fixed', 'sticky';
 
-@each $prop, $breakpoint in $breakpoints {
-  $prop: addPrefixBreakpoint($prop);
+@each $query, $breakpoint in $breakpoints {
+  $query: addColonAfter($query);
 
-  @include mediaMinmaxWidth($breakpoint, null) {
+  @include wrapperMediaWidth($breakpoint, null) {
     @each $pos in $position {
-      .#{$prop}#{$pos} {
+      .#{$query}#{$pos} {
         position: #{$pos};
 
         @if $pos == 'sticky' or $pos == 'absolute' {
@@ -30,10 +30,10 @@ $space: ();
   $space: join($space, $i * 5);
 }
 
-@each $prop, $breakpoint in $breakpoints {
-  $prop: addPrefixBreakpoint($prop);
+@each $query, $breakpoint in $breakpoints {
+  $query: addColonAfter($query);
 
-  @include mediaMinmaxWidth($breakpoint, null) {
+  @include wrapperMediaWidth($breakpoint, null) {
     @each $style in $styles {
       @each $size in $space {
         $value: 0;
@@ -42,7 +42,7 @@ $space: ();
           $value: #{$size}px;
         }
 
-        .#{$prop}#{$style}-#{$size} {
+        .#{$query}#{$style}-#{$size} {
           #{$style}: $value;
         }
       }

@@ -1,12 +1,12 @@
 // Text align
 $align: 'left', 'center', 'right', 'justify';
 
-@each $prop, $breakpoint in $breakpoints {
-  $prop: addPrefixBreakpoint($prop);
+@each $query, $breakpoint in $breakpoints {
+  $query: addColonAfter($query);
 
-  @include mediaMinmaxWidth($breakpoint, null) {
+  @include wrapperMediaWidth($breakpoint, null) {
     @each $value in $align {
-      .#{$prop}text-#{$value} {
+      .#{$query}text-#{$value} {
         text-align: #{$value};
       }
     }

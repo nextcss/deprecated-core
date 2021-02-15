@@ -1,12 +1,12 @@
 @import './variables';
 
 // Display visible
-@each $prop, $breakpoint in $breakpoints {
-  $prop: addPrefixBreakpoint($prop);
+@each $query, $breakpoint in $breakpoints {
+  $query: addColonAfter($query);
 
-  @include mediaMinmaxWidth(null, $breakpoint) {
-    @if ($prop) {
-      .#{$prop}visible {
+  @include wrapperMediaWidth(null, $breakpoint) {
+    @if ($query) {
+      .#{$query}visible {
         display: none !important;
       }
     }
@@ -14,12 +14,16 @@
 }
 
 // Display hidden
-@each $prop, $breakpoint in $breakpoints {
-  $prop: addPrefixBreakpoint($prop);
+@each $query, $breakpoint in $breakpoints {
+  $query: addColonAfter($query);
 
-  @include mediaMinmaxWidth($breakpoint, null) {
-    .#{$prop}hidden {
+  @include wrapperMediaWidth($breakpoint, null) {
+    .#{$query}hidden {
       display: none !important;
+    }
+
+    .#{$query}invisible {
+      visibility: hidden;
     }
   }
 }

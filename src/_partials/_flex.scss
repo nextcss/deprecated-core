@@ -1,12 +1,12 @@
 // Flex wrap
 $wrap: ('wrap', 'wrap-reverse', 'nowrap');
 
-@each $prop, $breakpoint in $breakpoints {
-  $prop: addPrefixBreakpoint($prop);
+@each $query, $breakpoint in $breakpoints {
+  $query: addColonAfter($query);
 
-  @include mediaMinmaxWidth($breakpoint, null) {
+  @include wrapperMediaWidth($breakpoint, null) {
     @each $value in $wrap {
-      .#{$prop}flex-#{$value} {
+      .#{$query}flex-#{$value} {
         flex-wrap: #{$value};
       }
     }
@@ -16,12 +16,12 @@ $wrap: ('wrap', 'wrap-reverse', 'nowrap');
 // Flex Direction
 $direction: ('row', 'row-reverse', 'column', 'column-reverse');
 
-@each $prop, $breakpoint in $breakpoints {
-  $prop: addPrefixBreakpoint($prop);
+@each $query, $breakpoint in $breakpoints {
+  $query: addColonAfter($query);
 
-  @include mediaMinmaxWidth($breakpoint, null) {
+  @include wrapperMediaWidth($breakpoint, null) {
     @each $value in $direction {
-      .#{$prop}flex-#{$value} {
+      .#{$query}flex-#{$value} {
         flex-direction: #{$value};
       }
     }
@@ -36,16 +36,16 @@ $align: (
   'space': 'space-between',
 );
 
-@each $prop, $breakpoint in $breakpoints {
-  $prop: addPrefixBreakpoint($prop);
+@each $query, $breakpoint in $breakpoints {
+  $query: addColonAfter($query);
 
-  @include mediaMinmaxWidth($breakpoint, null) {
-    @each $query, $value in $align {
-      .#{$prop}justify-#{$query} {
+  @include wrapperMediaWidth($breakpoint, null) {
+    @each $prop, $value in $align {
+      .#{$query}justify-#{$prop} {
         justify-content: #{$value};
       }
       @if $query != 'space' {
-        .#{$prop}align-#{$query} {
+        .#{$query}align-#{$prop} {
           align-items: #{$value};
         }
       }
@@ -53,38 +53,38 @@ $align: (
   }
 }
 
-@each $prop, $breakpoint in $breakpoints {
-  $prop: addPrefixBreakpoint($prop);
+@each $query, $breakpoint in $breakpoints {
+  $query: addColonAfter($query);
 
-  @include mediaMinmaxWidth($breakpoint, null) {
+  @include wrapperMediaWidth($breakpoint, null) {
     // Flex resize 0
-    .#{$prop}flex-0 {
+    .#{$query}flex-0 {
       flex: 0 0 auto;
     }
 
     // Flex resize 1
-    .#{$prop}flex-1 {
+    .#{$query}flex-1 {
       flex: 1 1 auto;
       min-width: 0;
     }
 
     // Flex grow 0
-    .#{$prop}flex-grow-0 {
+    .#{$query}flex-grow-0 {
       flex-grow: 0;
     }
 
     // Flex grow 0
-    .#{$prop}flex-grow-1 {
+    .#{$query}flex-grow-1 {
       flex-grow: 1;
     }
 
     // Flex shrink 0
-    .#{$prop}flex-shrink-0 {
+    .#{$query}flex-shrink-0 {
       flex-shrink: 0;
     }
 
     // Flex shrink 1
-    .#{$prop}flex-shrink-1 {
+    .#{$query}flex-shrink-1 {
       flex-shrink: 1;
     }
   }

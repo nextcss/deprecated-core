@@ -7,7 +7,7 @@ $breakpoints: (
 );
 
 // Media rule wrapper
-@mixin mediaMinmaxWidth($min-width, $max-width) {
+@mixin wrapperMediaWidth($min-width, $max-width) {
   @if ($min-width and $max-width) {
     @media screen and (min-width: #{$min-width}px) and (max-width: #{$max-width}px) {
       @content;
@@ -25,12 +25,12 @@ $breakpoints: (
   }
 }
 
-// Add breakpoint prefix
-@function addPrefixBreakpoint($breakpoint) {
-  @if ($breakpoint) {
-    @return '#{$breakpoint}\\:';
+// Add color after input string
+@function addColonAfter($query) {
+  @if ($query) {
+    @return '#{$query}\\:';
   } @else {
-    @return $breakpoint;
+    @return $query;
   }
 }
 

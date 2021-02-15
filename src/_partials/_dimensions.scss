@@ -1,33 +1,33 @@
 @import 'variables';
 
-@each $prop, $breakpoint in $breakpoints {
-  $prop: addPrefixBreakpoint($prop);
+@each $query, $breakpoint in $breakpoints {
+  $query: addColonAfter($query);
 
-  @include mediaMinmaxWidth($breakpoint, null) {
+  @include wrapperMediaWidth($breakpoint, null) {
     // 12 columns with
     @for $i from 1 through 12 {
-      .#{$prop}w-12\/#{$i} {
+      .#{$query}w-12\/#{$i} {
         width: (100% / (12 / $i));
       }
     }
 
     // Percentage width
     @for $i from 1 through 20 {
-      .#{$prop}w-100\/#{$i*5} {
+      .#{$query}w-100\/#{$i*5} {
         width: $i * 5%;
       }
     }
 
     // Viewport width
     @for $i from 1 through 20 {
-      .#{$prop}w-#{$i*5}v {
+      .#{$query}w-#{$i*5}v {
         width: $i * 5vw;
       }
     }
 
     // Viewport height
     @for $i from 1 through 20 {
-      .#{$prop}h-#{$i*5}v {
+      .#{$query}h-#{$i*5}v {
         height: $i * 5vh;
       }
     }
@@ -43,18 +43,18 @@
     }
 
     // Fit with and height
-    .#{$prop}fit {
+    .#{$query}fit {
       width: 100%;
       height: 100%;
     }
 
     // Fit with
-    .#{$prop}fit-w {
+    .#{$query}fit-w {
       width: 100%;
     }
 
     // Fit height
-    .#{$prop}fit-h {
+    .#{$query}fit-h {
       height: 100%;
     }
   }
