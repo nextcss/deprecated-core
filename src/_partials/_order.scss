@@ -1,0 +1,24 @@
+@import 'variables';
+
+// Font sizes
+$order: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12;
+
+@each $query, $breakpoint in $breakpoints {
+  $query: addColonAfter($query);
+
+  @include wrapperMediaWidth($breakpoint, null) {
+    @each $value in $order {
+      .#{$query}order-#{$value} {
+        order: $value;
+      }
+    }
+
+    .#{$query}order-first {
+      order: -9999;
+    }
+
+    .#{$query}order-last {
+      order: 9999;
+    }
+  }
+}
