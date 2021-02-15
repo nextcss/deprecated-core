@@ -1,0 +1,14 @@
+$position: 'center', 'top', 'right', 'bottom', 'left', 'left-bottom', 'left-top', 'right-bottom',
+  'right-left';
+
+@each $query, $breakpoint in $breakpoints {
+  $query: addColonAfter($query);
+
+  @include wrapperMediaWidth($breakpoint, null) {
+    @each $prop in $position {
+      .#{$query}object-#{$prop} {
+        object-position: unquote(str-replace($prop, '-', ' '));
+      }
+    }
+  }
+}
