@@ -1,0 +1,19 @@
+$overflow: 'auto', 'hidden', 'visible', 'scroll';
+$coordinate: null, 'x', 'y';
+
+@each $query, $breakpoint in $breakpoints {
+  $query: addColonAfter($query);
+
+  @include wrapperMediaWidth($breakpoint, null) {
+    @each $prop in $coordinate {
+      @if ($prop) {
+        $prop: -#{$prop};
+      }
+      @each $value in $overflow {
+        .#{$query}overflow#{$prop}-#{$value} {
+          overflow#{$prop}: #{$value};
+        }
+      }
+    }
+  }
+}
