@@ -1,0 +1,13 @@
+$float: 'contain', 'cover', 'fill', 'scale-down', 'none';
+
+@each $query, $breakpoint in $breakpoints {
+  $query: addColonAfter($query);
+
+  @include wrapperMediaWidth($breakpoint, null) {
+    @each $prop in $float {
+      .#{$query}fit-#{$prop} {
+        object-fit: #{$prop};
+      }
+    }
+  }
+}
