@@ -1,0 +1,18 @@
+@import './variables';
+
+$sizing: (
+  'border': 'border-box',
+  'content': 'content-box',
+);
+
+@each $query, $breakpoint in $breakpoints {
+  $query: addColonAfter($query);
+
+  @include wrapperMediaWidth($breakpoint, null) {
+    @each $prop, $value in $sizing {
+      .#{$query}box-#{$prop} {
+        box-sizing: #{$value};
+      }
+    }
+  }
+}
