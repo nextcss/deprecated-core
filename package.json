@@ -1,6 +1,6 @@
 {
   "name": "@nextcss/core",
-  "version": "0.4.0-beta",
+  "version": "0.4.1-beta",
   "description": "Core module for Next.css.",
   "license": "MIT",
   "main": "dist/core.css",
@@ -30,7 +30,7 @@
   "scripts": {
     "build": "npm run build:dist && npm run build:test",
     "watch": "node-sass --watch --output-style compact src/core.scss dist/core.css",
-    "build:dist": "node-sass --output-style compressed src/core.scss dist/core.css",
+    "build:dist": "node-sass --output-style compact src/core.scss dist/core.css",
     "build:test": "node-sass --output-style compact src/core.scss test/core.css"
   },
   "devDependencies": {
