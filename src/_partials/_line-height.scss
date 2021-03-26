@@ -3,7 +3,8 @@
 // Line height
 @for $i from 0 through 50 {
   $value: $i/10;
-  $prop: str-replace(#{$value}, '.', '\\.');
+  $prop: str-replace(#{$value}, '.0', '');
+  $prop: str-replace(#{$value}, '.', '');
 
   .lh-#{$prop} {
     line-height: $value;
