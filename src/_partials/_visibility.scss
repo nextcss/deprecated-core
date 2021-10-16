@@ -6,8 +6,12 @@
 
   @include wrapperMediaWidth(null, $breakpoint) {
     @if ($query) {
-      .#{$query}visible {
+      .#{$query}show {
         display: none !important;
+      }
+
+      .#{$query}visible {
+        visibility: hidden !important;
       }
     }
   }
@@ -18,12 +22,12 @@
   $query: addColonAfter($query);
 
   @include wrapperMediaWidth($breakpoint, null) {
-    .#{$query}hidden {
+    .#{$query}hide {
       display: none !important;
     }
 
-    .#{$query}invisible {
-      visibility: hidden;
+    .#{$query}hidden {
+      visibility: hidden !important;
     }
   }
 }
