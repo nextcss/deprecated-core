@@ -1,7 +1,7 @@
 @import 'variables';
 
 // Font sizes
-$size: 10, 12, 14, 16, 18, 20, 24, 30, 36, 48, 54, 60, 72, 84, 96, 108, 120, 128, 132;
+$size: 10, 11, 12, 13, 14, 15, 16, 18, 20, 24, 30, 36, 48, 54, 60, 72, 84, 96, 108, 120, 128, 132;
 
 @each $query, $breakpoint in $breakpoints {
   $query: addColonAfter($query);
@@ -9,7 +9,7 @@ $size: 10, 12, 14, 16, 18, 20, 24, 30, 36, 48, 54, 60, 72, 84, 96, 108, 120, 128
   @include wrapperMediaWidth($breakpoint, null) {
     @each $value in $size {
       .#{$query}fs-#{$value} {
-        font-size: $value * 0.75pt;
+        font-size: #{$value}px;
       }
     }
   }
