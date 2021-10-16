@@ -14,4 +14,11 @@ $sizes: (
     padding-left: 10px;
     padding-right: 10px;
   }
+
+  .container-#{$selector}\/2 {
+    width: 100%;
+    max-width: #{$property/2}px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
