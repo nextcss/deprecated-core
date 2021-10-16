@@ -29,25 +29,43 @@ $direction: ('row', 'row-reverse', 'column', 'column-reverse');
 }
 
 // Flex align
+$justify: (
+  'start': 'flex-start',
+  'end': 'flex-end',
+  'center': 'center',
+  'around': 'space-around',
+  'between': 'space-between',
+  'evenly': 'space-evenly',
+);
+
 $align: (
   'start': 'flex-start',
   'end': 'flex-end',
   'center': 'center',
-  'space': 'space-between',
+  'stretch': 'stretch',
 );
 
 @each $query, $breakpoint in $breakpoints {
   $query: addColonAfter($query);
 
   @include wrapperMediaWidth($breakpoint, null) {
-    @each $prop, $value in $align {
+    @each $prop, $value in $justify {
       .#{$query}justify-#{$prop} {
         justify-content: #{$value};
       }
-      @if $query != 'space' {
-        .#{$query}align-#{$prop} {
-          align-items: #{$value};
-        }
+
+      .#{$query}justify-self-#{$prop} {
+        justify-self: #{$value};
+      }
+    }
+
+    @each $prop, $value in $align {
+      .#{$query}align-#{$prop} {
+        align-items: #{$value};
+      }
+
+      .#{$query}align-self-#{$prop} {
+        align-self: #{$value};
       }
     }
   }
@@ -59,13 +77,12 @@ $align: (
   @include wrapperMediaWidth($breakpoint, null) {
     // Flex resize 0
     .#{$query}flex-0 {
-      flex: 0 0 auto;
+      flex: 0;
     }
 
     // Flex resize 1
     .#{$query}flex-1 {
-      flex: 1 1 auto;
-      min-width: 0;
+      flex: 1;
     }
 
     // Flex grow 0
