@@ -13,54 +13,60 @@ $type: (
   'm': 'margin',
 );
 
-@each $value in $space {
-  $propValue: 0;
+@each $query, $breakpoint in $breakpoints {
+  $query: addColonAfter($query);
 
-  @each $class, $prop in $type {
-    // Check if value is string or numeric
-    @if ($value == 0 or type-of($value) == 'string') {
-      $propValue: #{$value};
-    } @else {
-      $propValue: #{$value}px;
-    }
+  @include wrapperMediaWidth($breakpoint, null) {
+    @each $value in $space {
+      $propValue: 0;
 
-    // Skip padding: auto
-    @if ($class!= 'p' or $value!= 'auto') {
-      // Around
-      .#{$class}-#{$value} {
-        #{$prop}: $propValue;
-      }
+      @each $class, $prop in $type {
+        // Check if value is string or numeric
+        @if ($value == 0 or type-of($value) == 'string') {
+          $propValue: #{$value};
+        } @else {
+          $propValue: #{$value}px;
+        }
 
-      // Vertical (y)
-      .#{$class}y-#{$value} {
-        #{$prop}-top: $propValue;
-        #{$prop}-bottom: $propValue;
-      }
+        // Skip padding: auto
+        @if ($class!= 'p' or $value!= 'auto') {
+          // Around
+          .#{$query}#{$class}-#{$value} {
+            #{$prop}: $propValue;
+          }
 
-      // Horizontal (x)
-      .#{$class}x-#{$value} {
-        #{$prop}-left: $propValue;
-        #{$prop}-right: $propValue;
-      }
+          // Vertical (y)
+          .#{$query}#{$class}y-#{$value} {
+            #{$prop}-top: $propValue;
+            #{$prop}-bottom: $propValue;
+          }
 
-      // Top
-      .#{$class}t-#{$value} {
-        #{$prop}-top: $propValue;
-      }
+          // Horizontal (x)
+          .#{$query}#{$class}x-#{$value} {
+            #{$prop}-left: $propValue;
+            #{$prop}-right: $propValue;
+          }
 
-      // Right
-      .#{$class}r-#{$value} {
-        #{$prop}-right: $propValue;
-      }
+          // Top
+          .#{$query}#{$class}t-#{$value} {
+            #{$prop}-top: $propValue;
+          }
 
-      // Bottom
-      .#{$class}b-#{$value} {
-        #{$prop}-bottom: $propValue;
-      }
+          // Right
+          .#{$query}#{$class}r-#{$value} {
+            #{$prop}-right: $propValue;
+          }
 
-      // Left
-      .#{$class}l-#{$value} {
-        #{$prop}-left: $propValue;
+          // Bottom
+          .#{$query}#{$class}b-#{$value} {
+            #{$prop}-bottom: $propValue;
+          }
+
+          // Left
+          .#{$query}#{$class}l-#{$value} {
+            #{$prop}-left: $propValue;
+          }
+        }
       }
     }
   }
