@@ -1,6 +1,12 @@
 // Font weight
-@for $i from 1 through 9 {
-  .fw-#{$i}00 {
-    font-weight: ($i * 100);
+@each $query, $breakpoint in $breakpoints {
+  $query: addColonAfter($query);
+
+  @include wrapperMediaWidth($breakpoint, null) {
+    @for $i from 1 through 9 {
+      .#{$query}fw-#{$i}00 {
+        font-weight: ($i * 100);
+      }
+    }
   }
 }
