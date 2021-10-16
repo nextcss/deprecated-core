@@ -9,7 +9,7 @@ $position: 'static', 'relative', 'absolute', 'fixed', 'sticky';
       .#{$query}#{$pos} {
         position: #{$pos};
 
-        @if $pos == 'sticky' or $pos == 'absolute' {
+        @if $pos == 'sticky' {
           top: 0;
         }
       }
