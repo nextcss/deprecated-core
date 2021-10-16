@@ -1,10 +1,16 @@
 $selectors: 'inline', 'block', 'inline-block', 'flex', 'inline-flex';
 
-@each $selector in $selectors {
-  .#{$selector} {
-    display: #{$selector};
-    @if $selector == 'flex' {
-      flex-wrap: wrap;
+@each $query, $breakpoint in $breakpoints {
+  $query: addColonAfter($query);
+
+  @include wrapperMediaWidth($breakpoint, null) {
+    @each $selector in $selectors {
+      .#{$query}#{$selector} {
+        display: #{$selector};
+        @if $selector == 'flex' {
+          flex-wrap: wrap;
+        }
+      }
     }
   }
 }
