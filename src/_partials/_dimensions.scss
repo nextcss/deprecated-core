@@ -1,5 +1,32 @@
 @import 'variables';
 
+// Fixed with and height
+$sizes: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10;
+$sizesExtend: 11, 12, 14, 16, 18, 20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 72, 80, 96;
+$sizes: join($sizes, $sizesExtend);
+
+@each $query, $breakpoint in $breakpoints {
+  $query: addColonAfter($query);
+
+  @include wrapperMediaWidth($breakpoint, null) {
+    @for $i from 10 through 50 {
+      $sizes: join($sizes, $i * 10);
+    }
+
+    @each $size in $sizes {
+      // Width
+      .#{$query}w-#{$size} {
+        width: #{$size}px;
+      }
+
+      // Height
+      .#{$query}h-#{$size} {
+        height: #{$size}px;
+      }
+    }
+  }
+}
+
 @each $query, $breakpoint in $breakpoints {
   $query: addColonAfter($query);
 
@@ -33,12 +60,12 @@
     }
 
     // Width auto
-    .w-auto {
+    .#{$query}w-auto {
       width: auto;
     }
 
     // Height auto
-    .h-auto {
+    .#{$query}h-auto {
       height: auto;
     }
 
@@ -57,26 +84,5 @@
     .#{$query}fit-h {
       height: 100%;
     }
-  }
-}
-
-// Fixed with and height
-$sizes: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10;
-$sizesExtend: 11, 12, 14, 16, 18, 20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 72, 80, 96;
-$sizes: join($sizes, $sizesExtend);
-
-@for $i from 10 through 50 {
-  $sizes: join($sizes, $i * 10);
-}
-
-@each $size in $sizes {
-  // Width
-  .w-#{$size} {
-    width: #{$size}px;
-  }
-
-  // Height
-  .h-#{$size} {
-    height: #{$size}px;
   }
 }
