@@ -6,7 +6,7 @@ $zIndex: ('auto', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 1000);
 
   @include wrapperMediaWidth($breakpoint, null) {
     @each $value in $zIndex {
-      .z-#{$value} {
+      .#{$query}z-#{$value} {
         z-index: #{$value};
       }
     }
@@ -21,7 +21,7 @@ $zIndex: (1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
   @include wrapperMediaWidth($breakpoint, null) {
     @each $value in $zIndex {
-      .-z-#{$value} {
+      .#{$query}-z-#{$value} {
         z-index: -#{$value};
       }
     }
