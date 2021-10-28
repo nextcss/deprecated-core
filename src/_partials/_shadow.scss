@@ -1,14 +1,20 @@
 // Box shadow
 $shadow: 1, 2, 3, 4, 6, 8, 9, 12, 16, 24;
 
-@for $i from 1 through length($shadow) {
-  $value: nth($shadow, $i);
+@each $query, $breakpoint in $breakpoints {
+  $query: addColonAfter($query);
 
-  .shadow-#{$i} {
-    $ambient: 0 ($value * 0.35px) ($value * 3.5px) ($value * 0.25px) rgba(0, 0, 0, 0.08);
-    $key-light: 0 ($value * 1px) ($value * 1.4px) ($value * -0.5px) rgba(0, 0, 0, 0.09);
-    $key-dark: 0 ($value * 0.5px) ($value * 0.6px) ($value * -0.3px) rgba(0, 0, 0, 0.14);
+  @include wrapperMediaWidth($breakpoint, null) {
+    @for $i from 1 through length($shadow) {
+      $value: nth($shadow, $i);
 
-    box-shadow: $ambient, $key-light, $key-dark;
+      .shadow-#{$i} {
+        $ambient: 0 ($value * 0.35px) ($value * 3.5px) ($value * 0.25px) rgba(0, 0, 0, 0.08);
+        $key-light: 0 ($value * 1px) ($value * 1.4px) ($value * -0.5px) rgba(0, 0, 0, 0.09);
+        $key-dark: 0 ($value * 0.5px) ($value * 0.6px) ($value * -0.3px) rgba(0, 0, 0, 0.14);
+
+        box-shadow: $ambient, $key-light, $key-dark;
+      }
+    }
   }
 }
