@@ -1,3 +1,5 @@
+@import 'variables';
+
 // Border with
 $border: ();
 
@@ -60,15 +62,21 @@ $radius: ();
 
 $radius: join($radius, (1000, 10000));
 
-@each $prop in $radius {
-  $value: 0;
+@each $query, $breakpoint in $breakpoints {
+  $query: addColonAfter($query);
 
-  @if ($prop != 0) {
-    $value: #{$prop}px;
-  }
+  @include wrapperMediaWidth($breakpoint, null) {
+    @each $prop in $radius {
+      $value: 0;
 
-  .radius-#{$prop} {
-    border-radius: $value;
+      @if ($prop != 0) {
+        $value: #{$prop}px;
+      }
+
+      .#{$query}radius-#{$prop} {
+        border-radius: $value;
+      }
+    }
   }
 }
 
