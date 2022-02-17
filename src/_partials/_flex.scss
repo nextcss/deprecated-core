@@ -75,14 +75,19 @@ $align: (
   $query: addColonAfter($query);
 
   @include wrapperMediaWidth($breakpoint, null) {
+    // Flex resize auto
+    .#{$query}flex-auto {
+      flex: 1 1 auto;
+    }
+
     // Flex resize 0
     .#{$query}flex-0 {
-      flex: 0;
+      flex: 0 0 auto;
     }
 
     // Flex resize 1
     .#{$query}flex-1 {
-      flex: 1;
+      flex: 1 1 0%;
     }
 
     // Flex grow 0

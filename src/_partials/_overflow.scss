@@ -1,4 +1,4 @@
-$overflow: 'auto', 'hidden', 'visible', 'scroll';
+$overflow: 'auto', 'hidden', 'visible', 'scroll', 'overlay';
 $coordinate: null, 'x', 'y';
 
 @each $query, $breakpoint in $breakpoints {
