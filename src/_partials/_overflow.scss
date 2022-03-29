@@ -11,6 +11,9 @@ $coordinate: null, 'x', 'y';
       }
       @each $value in $overflow {
         .#{$query}overflow#{$prop}-#{$value} {
+          @if ($value == 'overlay') {
+            overflow#{$prop}: auto;
+          }
           overflow#{$prop}: #{$value};
         }
       }
