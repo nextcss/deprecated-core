@@ -45,13 +45,13 @@ available CSS selectors below.
         <div class="bg-white p-25 radius-3 shadow-1">
           <h2 class="fs-20 fw-500 fg-grey-900 mb-8">Shooting Stars</h2>
           <p class="leading-relaxed text-base mb-4">
-            Fingerstache flexitarian street art 8-bit waistcoat. ...
+            Fingerstache flexitarian street art 8-bit waistcoat. ..
           </p>
           <span class="fg-pink-500 inline-flex align-center">Learn More →</span>
         </div>
       </a>
       <!-- Repeated block here -->
-      ...
+      ..
     </div>
   </div>
 </section>
@@ -59,18 +59,43 @@ available CSS selectors below.
 
 # Selectors
 
+## Responsive prefixes
+
+Most classes you will encounter can be used with responsive prefixes. This gives you the option to
+use classes according to the screen size.
+
+### Example
+
+```html
+<p class="fs-12 sm:fs-13 md:fs-14 lg:fs-16 xl:fs-18">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+</p>
+```
+
+### References
+
+| Prefix | Screen size | Breakpint |
+| ------ | ----------- | --------- |
+|        | Default     | none      |
+| sm:    | Small       | 390px     |
+| md:    | Medium      | 768px     |
+| lg:    | Large       | 1024px    |
+| xl:    | Extra large | 1400px    |
+
 ## Containers
 
 Containers are used to limit the width of content, preventing content from overflowing beyond the
 specified size.
 
-### Example:
+### Example
 
 ```html
 <div class="container-xl">
   <p>Padding</p>
 </div>
 ```
+
+### References
 
 | Classname    | Max. width | Classname      | Max. width |
 | ------------ | ---------- | -------------- | ---------- |
@@ -84,7 +109,7 @@ specified size.
 
 Padding is used to create space around an element's content, inside of any defined borders.
 
-### Example:
+### Example
 
 ```html
 <div class="px-5 py-10">
@@ -92,41 +117,23 @@ Padding is used to create space around an element's content, inside of any defin
 </div>
 ```
 
-| Classname  | Side       | Values with 1px step | Values with 5px step |
-| ---------- | ---------- | -------------------- | -------------------- |
-| p-{value}  | around     | [0...10]px           | [15...500]px         |
-| px-{value} | horizontal | [0...10]px           | [15...500]px         |
-| py-{value} | vertical   | [0...10]px           | [15...500]px         |
-| pt-{value} | top        | [0...10]px           | [15...500]px         |
-| pb-{value} | bottom     | [0...10]px           | [15...500]px         |
-| pl-{value} | left       | [0...10]px           | [15...500]px         |
-| pr-{value} | right      | [0...10]px           | [15...500]px         |
+### References
+
+These classes can be combined with [Responsive prefixes](#responsive-prefixes).
+
+| Classname  | Side       | Values (1px step) | Values (5px step) |
+| ---------- | ---------- | ----------------- | ----------------- |
+| p-{value}  | around     | [0..10]           | [15..500]         |
+| px-{value} | horizontal | [0..10]           | [15..500]         |
+| py-{value} | vertical   | [0..10]           | [15..500]         |
+| pt-{value} | top        | [0..10]           | [15..500]         |
+| pb-{value} | bottom     | [0..10]           | [15..500]         |
+| pl-{value} | left       | [0..10]           | [15..500]         |
+| pr-{value} | right      | [0..10]           | [15..500]         |
 
 ## Margins
 
 Margins are used to create space around elements, outside of any defined borders.
-
-### Example:
-
-```html
-<div class="mx-5 my-10">
-  <p>Padding</p>
-</div>
-```
-
-| Classname  | Side       | Values with 1px step | Values with 5px step |
-| ---------- | ---------- | -------------------- | -------------------- |
-| m-{value}  | around     | [0...10]px           | [15...500]px         |
-| mx-{value} | horizontal | [0...10]px           | [15...500]px         |
-| my-{value} | vertical   | [0...10]px           | [15...500]px         |
-| mt-{value} | top        | [0...10]px           | [15...500]px         |
-| mb-{value} | bottom     | [0...10]px           | [15...500]px         |
-| ml-{value} | left       | [0...10]px           | [15...500]px         |
-| mr-{value} | right      | [0...10]px           | [15...500]px         |
-
-## Borders
-
-Borders allow you to specify the style, width, and color of an element's border.
 
 ### Example
 
@@ -136,17 +143,43 @@ Borders allow you to specify the style, width, and color of an element's border.
 </div>
 ```
 
+### References
+
+These classes can be combined with [Responsive prefixes](#responsive-prefixes).
+
+| Classname  | Side       | Values (1px step) | Values (5px step) |
+| ---------- | ---------- | ----------------- | ----------------- |
+| m-{value}  | around     | [0..10]           | [15..500]         |
+| mx-{value} | horizontal | [0..10]           | [15..500]         |
+| my-{value} | vertical   | [0..10]           | [15..500]         |
+| mt-{value} | top        | [0..10]           | [15..500]         |
+| mb-{value} | bottom     | [0..10]           | [15..500]         |
+| ml-{value} | left       | [0..10]           | [15..500]         |
+| mr-{value} | right      | [0..10]           | [15..500]         |
+
+## Borders
+
+Borders allow you to specify the style, width, and color of an element's border.
+
+### Example
+
+```html
+<div class="b-2 b-dashed radius-5">
+  <p>Padding</p>
+</div>
+```
+
 ### Border with
 
-| Classname  | Side       | Values with 1px step | Values with 5px step |
-| ---------- | ---------- | -------------------- | -------------------- |
-| b-{value}  | around     | [0...10]px           | [15...500]px         |
-| bx-{value} | horizontal | [0...10]px           | [15...500]px         |
-| by-{value} | vertical   | [0...10]px           | [15...500]px         |
-| bt-{value} | top        | [0...10]px           | [15...500]px         |
-| bb-{value} | bottom     | [0...10]px           | [15...500]px         |
-| bl-{value} | left       | [0...10]px           | [15...500]px         |
-| br-{value} | right      | [0...10]px           | [15...500]px         |
+| Classname  | Side       | Values (1px step) | Values (5px step) |
+| ---------- | ---------- | ----------------- | ----------------- |
+| b-{value}  | around     | [0..10]           | [15..100]         |
+| bx-{value} | horizontal | [0..10]           | [15..100]         |
+| by-{value} | vertical   | [0..10]           | [15..100]         |
+| bt-{value} | top        | [0..10]           | [15..100]         |
+| bb-{value} | bottom     | [0..10]           | [15..100]         |
+| bl-{value} | left       | [0..10]           | [15..100]         |
+| br-{value} | right      | [0..10]           | [15..100]         |
 
 ### Border style
 
@@ -157,13 +190,15 @@ Borders allow you to specify the style, width, and color of an element's border.
 
 ### Border radius
 
-| Classname      | Values with 1px step | Values with 5px step | Specific values |
-| -------------- | -------------------- | -------------------- | --------------- |
-| radius-{value} | [0...10]px           | [15...500]px         | [1000\|10000]px |
+These classes can be combined with [Responsive prefixes](#responsive-prefixes).
+
+| Classname      | Values (1px step) | Values (5px step) | Specific values |
+| -------------- | ----------------- | ----------------- | --------------- |
+| radius-{value} | [0..10]           | [15..100]         | [1000\|10000]   |
 
 ### Floating and Box sizing
 
-| Classname     | Values                    |
+| Classname     | Specific values           |
 | ------------- | ------------------------- |
 | float-{value} | [left\|right\|none]       |
 | clear-{value} | [left\|right\|both\|none] |
