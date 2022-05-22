@@ -1,6 +1,6 @@
 {
   "name": "@nextcss/core",
-  "version": "0.6.0-beta",
+  "version": "0.6.1-beta",
   "description": "Core module for Next.css.",
   "license": "MIT",
   "main": "dist/core.css",
@@ -26,7 +26,7 @@
   "bugs": {
     "url": "https://github.com/nextcss/core/issues"
   },
-  "homepage": "https://next-css.com",
+  "homepage": "git+https://github.com/nextcss/core.git",
   "scripts": {
     "build": "npm run build:dist && npm run build:test",
     "watch": "node-sass --watch --output-style compact --output test/ src/",

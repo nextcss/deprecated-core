@@ -1,5 +1,4 @@
-$position: 'center', 'top', 'right', 'bottom', 'left', 'left-bottom', 'left-top', 'right-bottom',
-  'right-left';
+$position: 'center', 'top', 'right', 'bottom', 'left';
 
 @each $query, $breakpoint in $breakpoints {
   $query: addColonAfter($query);
