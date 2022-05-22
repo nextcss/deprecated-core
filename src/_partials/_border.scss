@@ -56,7 +56,7 @@ $radius: ();
   $radius: join($radius, $i);
 }
 
-@for $i from 2 through 20 {
+@for $i from 3 through 20 {
   $radius: join($radius, $i * 5);
 }
 
