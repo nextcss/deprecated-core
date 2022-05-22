@@ -74,13 +74,13 @@ use classes according to the screen size.
 
 ### References
 
-| Prefix | Screen size | Breakpint |
-| ------ | ----------- | --------- |
-|        | Default     | none      |
-| sm:    | Small       | 390px     |
-| md:    | Medium      | 768px     |
-| lg:    | Large       | 1024px    |
-| xl:    | Extra large | 1400px    |
+| Prefix | Screen size | Breakpoint |
+| ------ | ----------- | ---------- |
+|        | Default     | none       |
+| sm:    | Small       | 390px      |
+| md:    | Medium      | 768px      |
+| lg:    | Large       | 1024px     |
+| xl:    | Extra large | 1400px     |
 
 ## Containers
 
@@ -90,9 +90,7 @@ specified size.
 ### Example
 
 ```html
-<div class="container-xl">
-  <p>Padding</p>
-</div>
+<div class="container-xl">content</div>
 ```
 
 ### References
@@ -112,9 +110,7 @@ Padding is used to create space around an element's content, inside of any defin
 ### Example
 
 ```html
-<div class="px-5 py-10">
-  <p>Padding</p>
-</div>
+<div class="px-5 py-10">content</div>
 ```
 
 ### References
@@ -138,9 +134,7 @@ Margins are used to create space around elements, outside of any defined borders
 ### Example
 
 ```html
-<div class="mx-5 my-10">
-  <p>Padding</p>
-</div>
+<div class="mx-5 my-10">content</div>
 ```
 
 ### References
@@ -164,9 +158,7 @@ Borders allow you to specify the style, width, and color of an element's border.
 ### Example
 
 ```html
-<div class="b-2 b-dashed radius-5">
-  <p>Padding</p>
-</div>
+<div class="b-2 b-dashed radius-5">content</div>
 ```
 
 ### Border with
@@ -196,7 +188,165 @@ These classes can be combined with [Responsive prefixes](#responsive-prefixes).
 | -------------- | ----------------- | ----------------- | --------------- |
 | radius-{value} | [0..10]           | [15..100]         | [1000\|10000]   |
 
-### Floating and Box sizing
+## Font size
+
+### Example
+
+```html
+<p class="fs-12 sm:fs-13 md:fs-14 lg:fs-15 xl:fs-16">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+</p>
+```
+
+### References
+
+These classes can be combined with [Responsive prefixes](#responsive-prefixes).
+
+| Classname  | Values (1px step) | Values (2px step) | Values (5px step) |
+| ---------- | ----------------- | ----------------- | ----------------- |
+| fs-{value} | [10..20]          | [22..40]          | [45..150]         |
+
+## Font weight
+
+### Example
+
+```html
+<p class="fw-900 sm:fw-800 md:fw-700 lg:fw-600 xl:fw-500">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+</p>
+```
+
+### References
+
+These classes can be combined with [Responsive prefixes](#responsive-prefixes).
+
+| Classname  | Values (100px step) |
+| ---------- | ------------------- |
+| fw-{value} | [100..900]          |
+
+## Line height
+
+### Example
+
+```html
+<p class="lh-1.6">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+```
+
+### References
+
+| Classname  | Values (0.1 step) |
+| ---------- | ----------------- |
+| lh-{value} | [0..6]            |
+
+## Display
+
+### Example
+
+```html
+<div class="block md:flex">content</div>
+```
+
+### References
+
+These classes can be combined with [Responsive prefixes](#responsive-prefixes).
+
+| Classname    | Result                         |
+| ------------ | ------------------------------ |
+| inline       | display: inline                |
+| block        | display: block                 |
+| inline-block | display: inline-block          |
+| flex         | display: flex; flex-wrap: wrap |
+| inline-flex  | display: inline-flex           |
+
+## Order
+
+### Example
+
+```html
+<ul class="flex">
+  <li class="order-2">Item 2</li>
+  <li class="order-1">Item 1</li>
+</ul>
+```
+
+### References
+
+These classes can be combined with [Responsive prefixes](#responsive-prefixes).
+
+| Classname     | Values (1 step) | Specific values |
+| ------------- | --------------- | --------------- |
+| order-{value} | [0...12]        | [first\|last]   |
+
+## Overflow
+
+### Example
+
+```html
+<div class="md:h-300 md:overflow-y-overlay">
+  <div class="flex overflow-hidden">content</div>
+</div>
+```
+
+### References
+
+These classes can be combined with [Responsive prefixes](#responsive-prefixes).
+
+| Classname          | Direction  | Specific values                          |
+| ------------------ | ---------- | ---------------------------------------- |
+| overflow-{value}   | Both       | [auto\|hidden\|visible\|scroll\|overlay] |
+| overflow-x-{value} | Horizontal | [auto\|hidden\|visible\|scroll\|overlay] |
+| overflow-y-{value} | Vertical   | [auto\|hidden\|visible\|scroll\|overlay] |
+
+## Overscroll
+
+### Example
+
+```html
+<div class="h-300 overscroll-contain">content</div>
+```
+
+### References
+
+These classes can be combined with [Responsive prefixes](#responsive-prefixes).
+
+| Classname            | Direction  | Specific values       |
+| -------------------- | ---------- | --------------------- |
+| overscroll-{value}   | Both       | [auto\|contain\|none] |
+| overscroll-x-{value} | Horizontal | [auto\|contain\|none] |
+| overscroll-y-{value} | Vertical   | [auto\|contain\|none] |
+
+## Object fit and position
+
+### Example
+
+```html
+<div class="w-200 h-200">
+  <img src="" alt="" class="fit-cover" />
+</div>
+```
+
+### References
+
+These classes can be combined with [Responsive prefixes](#responsive-prefixes).
+
+| Classname      | Specific values                    |
+| -------------- | ---------------------------------- |
+| fit-{value}    | [contain\|cover\|fill]             |
+| object-{value} | [center\|top\|right\|bottom\|left] |
+
+## Floating and Box sizing
+
+### Example
+
+```html
+<div class="float-none md:float-left">content</div>
+<div class="clear-both">content</div>
+<div class="box-content">content</div>
+```
+
+### References
+
+These classes can be combined with [Responsive prefixes](#responsive-prefixes).
 
 | Classname     | Specific values           |
 | ------------- | ------------------------- |
