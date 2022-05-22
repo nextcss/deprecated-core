@@ -1,6 +1,8 @@
 # Next.css Core Module
 
-Core Module is part of [Next.css framework](https://github.com/nextcss). This module contains original Material Color Palette CSS styles for your Next.css project. You can use in all modern websites with module bundlers, like webpack, rollup, parcel.
+Core Module is part of [Next.css framework](https://github.com/nextcss). This module contains
+original Material Color Palette CSS styles for your Next.css project. You can use in all modern
+websites with module bundlers, like webpack, rollup, parcel.
 
 **[Next.css on GitHub](https://github.com/nextcss)**
 
@@ -13,8 +15,8 @@ npm i @nextcss/core @nextcss/reset @nextcss/material-colors
 yarn add @nextcss/core @nextcss/reset @nextcss/material-colors
 ```
 
-Simple import to your project, and add class rules to you HTML tags.
-Check available selector rules below.
+Simple import to your project, and add class rules to you HTML tags. Check available selector rules
+below.
 
 ```javascript
 import '@nextcss/reset';
@@ -24,8 +26,8 @@ import '@nextcss/material-colors';
 
 ## How to use
 
-Example feature list block. [Watch the resolution here](https://7q75l.csb.app/)
-Learn more about available CSS selectors below.
+Example feature list block. [Watch the resolution here](https://7q75l.csb.app/) Learn more about
+available CSS selectors below.
 
 ```html
 <section class="fs-16 lh-1.6 bg-grey-50 fg-grey-700 py-50">
@@ -55,112 +57,123 @@ Learn more about available CSS selectors below.
 </section>
 ```
 
-## Table of Content
+# Selectors
 
-| Border                          | Floating        | Container               |
-| ------------------------------- | --------------- | ----------------------- |
-| [Border width](#border-width)   | [Float](#float) | [Container](#container) |
-| [Border style](#border-style)   | [Clear](#clear) |                         |
-| [Border radius](#border-radius) |                 |                         |
+## Containers
 
-### Border width
+Containers are used to limit the width of content, preventing content from overflowing beyond the
+specified size.
+
+### Example:
 
 ```html
-<!-- 3px border around -->
-<div class="b-3">...</div>
+<div class="container-xl">
+  <p>Padding</p>
+</div>
 ```
 
-**_around_**
+| Classname    | Max. width | Classname      | Max. width |
+| ------------ | ---------- | -------------- | ---------- |
+| container-xs | 480px      | container-xs/2 | 240px      |
+| container-sm | 640px      | container-sm/2 | 320px      |
+| container-md | 768px      | container-md/2 | 384px      |
+| container-lg | 1024px     | container-lg/2 | 512px      |
+| container-xl | 1280px     | container-xl/2 | 640px      |
 
-- `b-[0...10]` (step: `1`, unit: `px`)
-- `b-[15...100]` (step: `5`, unit: `px`)
+## Padding
 
-**_x-axis, y-axis_**
+Padding is used to create space around an element's content, inside of any defined borders.
 
-- `b[x|y]-[0...10]` (step: `1`, unit: `px`)
-- `b[x|y]-[15...100]` (step: `5`, unit: `px`)
+### Example:
 
-**_top, right, bottom, left_**
+```html
+<div class="px-5 py-10">
+  <p>Padding</p>
+</div>
+```
 
-- `b[t|r|b|l]-[0...10]` (step: `1`, unit: `px`)
-- `b[t|r|b|l]-[15...100]` (step: `5`, unit: `px`)
+| Classname  | Side       | Values with 1px step | Values with 5px step |
+| ---------- | ---------- | -------------------- | -------------------- |
+| p-{value}  | around     | [0...10]px           | [15...500]px         |
+| px-{value} | horizontal | [0...10]px           | [15...500]px         |
+| py-{value} | vertical   | [0...10]px           | [15...500]px         |
+| pt-{value} | top        | [0...10]px           | [15...500]px         |
+| pb-{value} | bottom     | [0...10]px           | [15...500]px         |
+| pl-{value} | left       | [0...10]px           | [15...500]px         |
+| pr-{value} | right      | [0...10]px           | [15...500]px         |
+
+## Margins
+
+Margins are used to create space around elements, outside of any defined borders.
+
+### Example:
+
+```html
+<div class="mx-5 my-10">
+  <p>Padding</p>
+</div>
+```
+
+| Classname  | Side       | Values with 1px step | Values with 5px step |
+| ---------- | ---------- | -------------------- | -------------------- |
+| m-{value}  | around     | [0...10]px           | [15...500]px         |
+| mx-{value} | horizontal | [0...10]px           | [15...500]px         |
+| my-{value} | vertical   | [0...10]px           | [15...500]px         |
+| mt-{value} | top        | [0...10]px           | [15...500]px         |
+| mb-{value} | bottom     | [0...10]px           | [15...500]px         |
+| ml-{value} | left       | [0...10]px           | [15...500]px         |
+| mr-{value} | right      | [0...10]px           | [15...500]px         |
+
+## Borders
+
+Borders allow you to specify the style, width, and color of an element's border.
+
+### Example
+
+```html
+<div class="mx-5 my-10">
+  <p>Padding</p>
+</div>
+```
+
+### Border with
+
+| Classname  | Side       | Values with 1px step | Values with 5px step |
+| ---------- | ---------- | -------------------- | -------------------- |
+| b-{value}  | around     | [0...10]px           | [15...500]px         |
+| bx-{value} | horizontal | [0...10]px           | [15...500]px         |
+| by-{value} | vertical   | [0...10]px           | [15...500]px         |
+| bt-{value} | top        | [0...10]px           | [15...500]px         |
+| bb-{value} | bottom     | [0...10]px           | [15...500]px         |
+| bl-{value} | left       | [0...10]px           | [15...500]px         |
+| br-{value} | right      | [0...10]px           | [15...500]px         |
 
 ### Border style
 
-```html
-<!-- 2px dashed border around -->
-<div class="b-2 b-dashed">...</div>
-```
-
-**_common_**
-
-- `b-[none|solid|dashed|dotted|double|groove|inset|outset|ridge]`
-
-**_table_**
-
-- `b-[collapse|separate]`
+| Classname | Usage  | Styles                                                              |
+| --------- | ------ | ------------------------------------------------------------------- |
+| b-{style} | common | [none\|solid\|dashed\|dotted\|double\|groove\|inset\|outset\|ridge] |
+| b-{style} | tables | [collapse\|separate]                                                |
 
 ### Border radius
 
-```html
-<!-- 3px border radius -->
-<div class="radius-3">...</div>
-```
+| Classname      | Values with 1px step | Values with 5px step | Specific values |
+| -------------- | -------------------- | -------------------- | --------------- |
+| radius-{value} | [0...10]px           | [15...500]px         | [1000\|10000]px |
 
-**_common_**
+### Floating and Box sizing
 
-- `radius-[0...10]` (step: `1`)
-- `radius-[15...100]` (step: `5`)
-- `radius-[1000|10000]`
+| Classname     | Values                    |
+| ------------- | ------------------------- |
+| float-{value} | [left\|right\|none]       |
+| clear-{value} | [left\|right\|both\|none] |
+| box-{value}   | [border\|content]         |
 
-### Box sizing
+# Production build
 
-```html
-<!-- box-sizing: border-box -->
-<div class="box-border">...</div>
-```
-
-**_common_**
-
-- `box-[border|content]`
-
-### Float
-
-```html
-<!-- Floating left side -->
-<div class="float-left">...</div>
-```
-
-**_common_**
-
-- `float-[left|right|none]`
-
-### Clear
-
-```html
-<!-- Clear floating on left side -->
-<div class="clear-left">...</div>
-```
-
-**_common_**
-
-- `clear-[left|right|both|none]`
-
-### Container
-
-```html
-<!-- Extra large container: 1280px -->
-<div class="container-xl">...</div>
-```
-
-**_common_**
-
-- `container-[xs|sm|md|lg|xl]`
-- `xs` 480px `sm` 640px `md` 768px `lg` 1024px `xl` 1280px
-
-## Production build
-
-We strongly recommend to use `postcss` with `autoprefixer` and `postcss-purgecss`. This stack will extend the CSS rules with browser specific prefixes, like `-webkit` and will remove unused styles in production build.
+We strongly recommend to use `postcss` with `autoprefixer` and `postcss-purgecss`. This stack will
+extend the CSS rules with browser specific prefixes, like `-webkit` and will remove unused styles in
+production build.
 
 ```shell
 npm i -D postcss autoprefixer @fullhuman/postcss-purgecss
