@@ -40,10 +40,16 @@ $decoration: 'underline', 'line-through';
 }
 
 // Text trim
-.text-trim {
-  max-width: 100%;
-  min-width: 0;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
+@each $query, $breakpoint in $breakpoints {
+  $query: addColonAfter($query);
+
+  @include wrapperMediaWidth($breakpoint, null) {
+    .#{$query}text-trim {
+      max-width: 100%;
+      min-width: 0;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
 }
