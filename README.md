@@ -103,53 +103,29 @@ specified size.
 | container-lg | 1024px     | container-lg/2 | 512px      |
 | container-xl | 1280px     | container-xl/2 | 640px      |
 
-## Padding
+## Padding and Margins
 
 Padding is used to create space around an element's content, inside of any defined borders.
 
 ### Example
 
 ```html
-<div class="px-5 py-10">content</div>
+<div class="px-5 py-10 mx-5 my-10">content</div>
 ```
 
 ### References
 
 These classes can be combined with [Responsive prefixes](#responsive-prefixes).
 
-| Classname  | Side       | Values (1px step) | Values (5px step) |
-| ---------- | ---------- | ----------------- | ----------------- |
-| p-{value}  | around     | [0..10]           | [15..500]         |
-| px-{value} | horizontal | [0..10]           | [15..500]         |
-| py-{value} | vertical   | [0..10]           | [15..500]         |
-| pt-{value} | top        | [0..10]           | [15..500]         |
-| pb-{value} | bottom     | [0..10]           | [15..500]         |
-| pl-{value} | left       | [0..10]           | [15..500]         |
-| pr-{value} | right      | [0..10]           | [15..500]         |
-
-## Margins
-
-Margins are used to create space around elements, outside of any defined borders.
-
-### Example
-
-```html
-<div class="mx-5 my-10">content</div>
-```
-
-### References
-
-These classes can be combined with [Responsive prefixes](#responsive-prefixes).
-
-| Classname  | Side       | Values (1px step) | Values (5px step) |
-| ---------- | ---------- | ----------------- | ----------------- |
-| m-{value}  | around     | [0..10]           | [15..500]         |
-| mx-{value} | horizontal | [0..10]           | [15..500]         |
-| my-{value} | vertical   | [0..10]           | [15..500]         |
-| mt-{value} | top        | [0..10]           | [15..500]         |
-| mb-{value} | bottom     | [0..10]           | [15..500]         |
-| ml-{value} | left       | [0..10]           | [15..500]         |
-| mr-{value} | right      | [0..10]           | [15..500]         |
+| Classname  | Classname  | Side       | Values (1px step) | Values (5px step) |
+| ---------- | ---------- | ---------- | ----------------- | ----------------- |
+| p-{value}  | m-{value}  | around     | [0..10]           | [15..500]         |
+| px-{value} | mx-{value} | horizontal | [0..10]           | [15..500]         |
+| py-{value} | my-{value} | vertical   | [0..10]           | [15..500]         |
+| pt-{value} | mt-{value} | top        | [0..10]           | [15..500]         |
+| pb-{value} | mb-{value} | bottom     | [0..10]           | [15..500]         |
+| pl-{value} | ml-{value} | left       | [0..10]           | [15..500]         |
+| pr-{value} | ml-{value} | right      | [0..10]           | [15..500]         |
 
 ## Borders
 
@@ -184,9 +160,9 @@ Borders allow you to specify the style, width, and color of an element's border.
 
 These classes can be combined with [Responsive prefixes](#responsive-prefixes).
 
-| Classname      | Values (1px step) | Values (5px step) | Specific values |
-| -------------- | ----------------- | ----------------- | --------------- |
-| radius-{value} | [0..10]           | [15..100]         | [1000\|10000]   |
+| Classname | Values (1px step) | Values (5px step) | Specific values |
+| --------- | ----------------- | ----------------- | --------------- |
+| r-{value} | [0..10]           | [15..100]         | [1000\|10000]   |
 
 ## Font size
 
@@ -238,6 +214,38 @@ These classes can be combined with [Responsive prefixes](#responsive-prefixes).
 | ---------- | ----------------- |
 | lh-{value} | [0..6]            |
 
+## Text manipulation
+
+### Example
+
+```html
+<p class="uppercase underline text-center">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+</p>
+```
+
+### References
+
+| Classname     | Relsult                       |
+| ------------- | ----------------------------- |
+| uppercare     | text-transform: uppercase     |
+| lowercase     | text-transform: lowercase     |
+| capitalize    | text-transform: capitalize    |
+| underline     | text-decoration: underline    |
+| line-through  | text-decoration: line-through |
+| no-transform  | text-transform: none          |
+| no-decoration | text-decoration: none         |
+
+These classes can be combined with [Responsive prefixes](#responsive-prefixes).
+
+| Classname    | Relsult                 |
+| ------------ | ----------------------- |
+| text-left    | text-align: left        |
+| text-center  | text-align: center      |
+| text-right   | text-align: right       |
+| text-justify | text-align: justify     |
+| text-trim    | text-overflow: ellipsis |
+
 ## Display
 
 ### Example
@@ -250,13 +258,13 @@ These classes can be combined with [Responsive prefixes](#responsive-prefixes).
 
 These classes can be combined with [Responsive prefixes](#responsive-prefixes).
 
-| Classname    | Result                         |
-| ------------ | ------------------------------ |
-| inline       | display: inline                |
-| block        | display: block                 |
-| inline-block | display: inline-block          |
-| flex         | display: flex; flex-wrap: wrap |
-| inline-flex  | display: inline-flex           |
+| Classname    | Result                |
+| ------------ | --------------------- |
+| inline       | display: inline       |
+| block        | display: block        |
+| inline-block | display: inline-block |
+| flex         | display: flex         |
+| inline-flex  | display: inline-flex  |
 
 ## Order
 
@@ -291,11 +299,11 @@ These classes can be combined with [Responsive prefixes](#responsive-prefixes).
 
 These classes can be combined with [Responsive prefixes](#responsive-prefixes).
 
-| Classname          | Direction  | Specific values                          |
-| ------------------ | ---------- | ---------------------------------------- |
-| overflow-{value}   | Both       | [auto\|hidden\|visible\|scroll\|overlay] |
-| overflow-x-{value} | Horizontal | [auto\|hidden\|visible\|scroll\|overlay] |
-| overflow-y-{value} | Vertical   | [auto\|hidden\|visible\|scroll\|overlay] |
+| Classname    | Direction  | Specific values                          |
+| ------------ | ---------- | ---------------------------------------- |
+| of-{value}   | Both       | [auto\|hidden\|visible\|scroll\|overlay] |
+| of-x-{value} | Horizontal | [auto\|hidden\|visible\|scroll\|overlay] |
+| of-y-{value} | Vertical   | [auto\|hidden\|visible\|scroll\|overlay] |
 
 ## Overscroll
 
@@ -309,11 +317,11 @@ These classes can be combined with [Responsive prefixes](#responsive-prefixes).
 
 These classes can be combined with [Responsive prefixes](#responsive-prefixes).
 
-| Classname            | Direction  | Specific values       |
-| -------------------- | ---------- | --------------------- |
-| overscroll-{value}   | Both       | [auto\|contain\|none] |
-| overscroll-x-{value} | Horizontal | [auto\|contain\|none] |
-| overscroll-y-{value} | Vertical   | [auto\|contain\|none] |
+| Classname    | Direction  | Specific values       |
+| ------------ | ---------- | --------------------- |
+| os-{value}   | Both       | [auto\|contain\|none] |
+| os-x-{value} | Horizontal | [auto\|contain\|none] |
+| os-y-{value} | Vertical   | [auto\|contain\|none] |
 
 ## Object fit and position
 

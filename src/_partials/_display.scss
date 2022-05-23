@@ -7,9 +7,6 @@ $selectors: 'inline', 'block', 'inline-block', 'flex', 'inline-flex';
     @each $selector in $selectors {
       .#{$query}#{$selector} {
         display: #{$selector};
-        @if $selector == 'flex' {
-          flex-wrap: wrap;
-        }
       }
     }
   }

@@ -10,7 +10,7 @@ $coordinate: null, 'x', 'y';
         $prop: -#{$prop};
       }
       @each $value in $overflow {
-        .#{$query}overflow#{$prop}-#{$value} {
+        .#{$query}of#{$prop}-#{$value} {
           @if ($value == 'overlay') {
             overflow#{$prop}: auto;
           }

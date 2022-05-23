@@ -10,7 +10,7 @@ $coordinate: null, 'x', 'y';
         $prop: -#{$prop};
       }
       @each $value in $overscroll {
-        .#{$query}overscroll#{$prop}-#{$value} {
+        .#{$query}os#{$prop}-#{$value} {
           overscroll-behavior#{$prop}: #{$value};
         }
       }
