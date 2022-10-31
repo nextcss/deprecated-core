@@ -4,8 +4,22 @@ $space: 'auto';
   $space: join($space, $i);
 }
 
-@for $i from 3 through 100 {
-  $space: join($space, $i * 5);
+@for $i from 15 through 100 {
+  @if $i % 5 == 0 {
+    $space: join($space, $i);
+  }
+}
+
+@for $i from 110 through 500 {
+  @if $i % 10 == 0 {
+    $space: join($space, $i);
+  }
+}
+
+@for $i from 550 through 1000 {
+  @if $i % 50 == 0 {
+    $space: join($space, $i);
+  }
 }
 
 $type: (
