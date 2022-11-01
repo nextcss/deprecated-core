@@ -1,0 +1,24 @@
+@import 'variables';
+
+$sizes: 5;
+
+@for $i from 10 through 50 {
+  @if $i % 5 == 0 {
+    $sizes: join($sizes, $i);
+  }
+}
+
+@each $query, $breakpoint in $breakpoints {
+  $query: addColonAfter($query);
+
+  @include wrapperMediaWidth($breakpoint, null) {
+    @each $value in $sizes {
+      .#{$query}gap-#{$value} {
+        margin: -#{$value}px;
+        > * {
+          padding: #{$value}px;
+        }
+      }
+    }
+  }
+}
