@@ -1,6 +1,6 @@
 {
   "name": "@nextcss/core",
-  "version": "0.7.3-beta",
+  "version": "0.7.4-beta",
   "description": "Core module for Next.css.",
   "license": "MIT",
   "main": "dist/core.css",

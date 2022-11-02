@@ -1,8 +1,8 @@
 @import 'variables';
 
-$sizes: 5;
+$sizes: 0;
 
-@for $i from 10 through 50 {
+@for $i from 5 through 50 {
   @if $i % 5 == 0 {
     $sizes: join($sizes, $i);
   }
@@ -14,9 +14,9 @@ $sizes: 5;
   @include wrapperMediaWidth($breakpoint, null) {
     @each $value in $sizes {
       .#{$query}gap-#{$value} {
-        margin: -#{$value}px;
+        margin: #{-$value/2}px;
         > * {
-          padding: #{$value}px;
+          padding: #{$value/2}px;
         }
       }
     }
